@@ -9,11 +9,9 @@ namespace DemoSeleniumSpecflow.Elements
 {
     internal class HamburgerMenu
     {
-        private readonly IWebDriver driver;
         private readonly IWebElement parent;
         public HamburgerMenu(IWebDriver driver, By selector)
         {
-            this.driver = driver;
             parent = driver.FindElement(selector);
         }
 
