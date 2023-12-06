@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using DemoSeleniumSpecflow.Elements;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace DemoSeleniumSpecflow.Pages
     {
         #region ElementDefinitions
         private IWebElement ProductSortContainer => driver.FindElement(By.CssSelector("select.product_sort_container"));
+        public HamburgerMenu Menu => new HamburgerMenu(driver, By.CssSelector("#menu_button_container"));
         #endregion
         public ProductPage(IWebDriver driver) : base(driver)
         {

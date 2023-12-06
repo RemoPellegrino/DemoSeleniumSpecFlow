@@ -51,6 +51,33 @@ namespace DemoSeleniumSpecflow.StepDefinitions
 
             listFromPage.Should().BeEquivalentTo(orderedList, options => options.WithStrictOrdering());
         }
+        [Then(@"the Navigation menu is closed")]
+        public void ThenTheNavigationMenuIsClosed()
+        {
+            productPage!.Menu.IsOpen().Should().BeFalse();
+        }
+
+
+        [When(@"the user clicks on the menu button")]
+        public void WhenTheUserClicksOnTheMenuButton()
+        {
+            productPage!.Menu.ToggleOpen();
+        }
+
+        [Then(@"the navigation menu is opened")]
+        public void ThenTheNavigationMenuIsOpened()
+        {
+            productPage!.Menu.IsOpen().Should().BeTrue();
+        }
+
+
+        [Then(@"the following navigation options are available")]
+        public void ThenTheFollowingNavigationOptionsAreAvailable(Table table)
+        {
+            var expectedItems = table.Rows.Select(x => x[0]);
+            productPage!.Menu.GetItems().Should().BeEquivalentTo(expectedItems);
+        }
+
         [AfterScenario]
         public void CleanUpDriver()
         {
