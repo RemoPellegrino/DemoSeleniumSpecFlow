@@ -7,6 +7,16 @@ Scenario: Logging in with valid credentials
 	When the user tries to log into the page with username 'standard_user' and password 'secret_sauce'
 	Then the user receives no errors
 	And the user arrives in the products page
+
+
+  
+Scenario: i check my shopping cart
+Given I am logged in 
+And I add a few products to my cart
+| Item                |
+| Sauce Labs Backpack |
+| Sauce Labs Backpack |
+Then i can validate my product counter
 	
 Scenario Outline: Logging in with invalid credentials
 	Given the user is on the login page

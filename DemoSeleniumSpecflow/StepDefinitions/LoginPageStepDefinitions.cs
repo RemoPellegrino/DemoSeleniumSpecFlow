@@ -54,5 +54,47 @@ namespace DemoSeleniumSpecflow.StepDefinitions
         {
             driver = DriverFactory.CreateChromeDriver();
         }
+
+        [Given(@"I am logged in")]
+        public void GivenIAmLoggedIn()
+        {
+            driver!.Url = "https://www.saucedemo.com/";
+            WhenTheUserTriesToLogIntoThePageWithUsernameAndPassword("standard_user", "secret_sauce");
+        }
+
+        [When(@"I search for a '([^']*)'")]
+        public void WhenISearchForA(string p0)
+        {
+            
+        }
+
+        [Then(@"I can validate its info")]
+        public void ThenICanValidateItsInfo(Table table)
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"I can add it to my cart")]
+        public void ThenICanAddItToMyCart()
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"I add a few products to my cart")]
+        public void GivenIAddAFewProductsToMyCart(Table table)
+        {
+            var productPage = new ProductPage(driver!);
+            foreach(var row in table.Rows)
+            {
+                productPage.AddProductToBasket(row["Item"]);
+            }
+        }
+
+        [Then(@"i can validate my product counter")]
+        public void ThenICanValidateMyProductCounter()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }

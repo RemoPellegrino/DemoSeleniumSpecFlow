@@ -108,6 +108,42 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("i check my shopping cart")]
+        public void ICheckMyShoppingCart()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("i check my shopping cart", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 13
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Item"});
+                table1.AddRow(new string[] {
+                            "Sauce Labs Backpack"});
+                table1.AddRow(new string[] {
+                            "Sauce Labs Backpack"});
+#line 15
+testRunner.And("I add a few products to my cart", ((string)(null)), table1, "And ");
+#line hidden
+#line 19
+testRunner.Then("i can validate my product counter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Logging in with invalid credentials")]
         [NUnit.Framework.TestCaseAttribute("", "abc", "Epic sadface: Username is required", null)]
         [NUnit.Framework.TestCaseAttribute("abc", "", "Epic sadface: Password is required", null)]
@@ -120,7 +156,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Expectederror", expectederror);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logging in with invalid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -130,13 +166,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 22
  testRunner.Given("the user is on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 23
  testRunner.When(string.Format("the user tries to log into the page with username \'{0}\' and password \'{1}\'", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 24
  testRunner.Then(string.Format("the user receives the error \'{0}\'", expectederror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

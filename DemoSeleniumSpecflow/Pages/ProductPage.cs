@@ -50,5 +50,15 @@ namespace DemoSeleniumSpecflow.Pages
                     return (name, price);
                 });
         }
+
+        public void AddProductToBasket(string name)
+        {
+            driver
+                .FindElements(By.CssSelector("#inventory_container .inventory_item"))
+                .First(iWe => iWe.FindElement(By.CssSelector(".inventory_item_name ")).Text == name)
+                .FindElement(By.CssSelector("button"))
+                .Click();
+
+        }
     }
 }
